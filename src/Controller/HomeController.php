@@ -14,7 +14,7 @@ class HomeController extends Controller{
         return $this->render(
             'home.html.twig',
             [
-                'title' => 'Location Appartements sur Lille',  
+                'title' => 'Location Appartements',  
             ]
         
         );

@@ -1,0 +1,63 @@
+header {
+    background      : linear-gradient(-225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%), 
+    url("../img/img-header.jpg") fixed;
+    height          : 100vh;
+    background-size : cover;
+    text-align      : center;
+    align-items     : center;
+    position        : relative;
+    justify-content: space-around;
+    display: flex;
+}
+header h1{
+    color: #b2bec3;
+}
+/* HEADER AD */
+#bg {
+    background      : linear-gradient(-225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%), 
+    url("../img/bgAd.jpg") fixed;
+    height          : 50vh;
+    background-size : cover;
+    text-align      : center;
+    align-items     : center;
+    position        : relative;
+    justify-content: space-around;
+    display: flex;
+}
+
+#bgCreate {
+    background      : linear-gradient(-225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%), 
+    url("../img/bgCreate.jpg") fixed;
+    height          : 50vh;
+    background-size : cover;
+    text-align      : center;
+    align-items     : center;
+    position        : relative;
+    justify-content: space-around;
+    display: flex;
+}
+.presentationBien span{
+   font-size: 20px;
+   font-weight: bold;
+}
+
+.chmb {
+    color : #30336b;
+}
+
+/*FORM*/
+form {
+    width : 50%;
+    margin: auto;
+    margin-top: 60px;
+}
+
+form label {
+    color :#30336b;
+}
+
+form button {
+    width : 100%;
+    margin-top: 30px;
+}
+

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ ad.title }} {% endblock %}
+{% block body %}
+    <div class="container presentationBien">
+        
+        <div class="row mt-4">
+              <div class="col-md-12 text-center">
+                 <img src="../img/img-london.jpg" class="img-fluid">
+            </div>
+        </div>
+
+
+        <div class="row text-center mt-3">
+            <div class="col-md-12">
+                <h3>{{ ad.title }}</h3>
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="chmb"> {{ ad.rooms }} chambres </p>
+                <p> {{ad.content | raw}} </p>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <p> <span>{{ ad.price }}€</span> /nuit </p>
+                <button type="button" class="btn btn-primary">Je réserve</button>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

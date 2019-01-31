@@ -1,0 +1,37 @@
+{% block _ajouter_annonce_images_widget %}
+    <p>Vous pouvez choisir des images pour votre annonce</p>
+
+        {{ form_widget(form) }}
+
+        <input type="hidden" id="widget-counter" value="0">
+
+        <div class="form-group">
+            <button type="button" id="btnAjouterImage" class="btn btn-success">Ajouter une image</button>
+        </div>
+{% endblock %}
+
+
+{% block _ajouter_annonce_images_entry_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+{% block _ajouter_annonce_images_entry_widget %}
+    <div class="form-group" id="block_{{id}}">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col">
+                        {{ form_widget(form.url) }}
+                    </div>
+                    <div class="col">
+                        {{ form_widget(form.caption) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button type="button" class="btn btn-danger" data-action="delete" 
+                data-target="#block_{{id}}" 
+                style="width:300px;border-radius:10px;" >Supprimer image</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
