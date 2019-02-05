@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Ad;
 use App\Form\ImageType;
+use App\Form\ApplicationType;
 use Symfony\Component\Form\AbstractType;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,25 +16,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
-class AjouterAnnonceType extends AbstractType
+class AjouterAnnonceType extends ApplicationType
 {
-    /**
-     * Function qui configure le formulaire
-     *
-     * @param [type] $label
-     * @param [type] $placeholder
-     * @return array
-     */
-    private function getConfigurationFormulaire($label , $placeholder)
-    {
-        return [
-            'label' => $label,
-            'attr' => [
-                'placeholder' => $placeholder,
-            ]
-            ];
-    }
-   
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -48,7 +32,8 @@ class AjouterAnnonceType extends AbstractType
             ->add('coverImage' , UrlType::class , 
             $this->getConfigurationFormulaire('Lien de l\'image' , 'URL une image'))
             ->add('rooms' , IntegerType::class , 
-            $this->getConfigurationFormulaire('Nombre de pièce' , 'Combien de pièce compte votre appartement'))
+            $this->getConfigurationFormulaire('Nombre de pièce' , 
+            'Combien de pièce compte votre appartement'))
              ->add('price' , MoneyType::class , 
              $this->getConfigurationFormulaire('Prix par nuit' , 'Quel est le prix par nuit ?'))
              //rajouter champ de type collection, ajouter plusieurs champs image, 

@@ -11,12 +11,6 @@ class HomeController extends Controller{
      *@Route("/", name="homePage")
      */
     public function home(){
-        return $this->render(
-            'home.html.twig',
-            [
-                'title' => 'Location Appartements',  
-            ]
-        
-        );
+        return $this->render('home.html.twig');
     }
 }

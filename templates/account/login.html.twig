@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+<div id="bgContact"></div>
+<div class="container mt-5">
+    <h1>Se connecter</h1>
+    <hr>
+    {% if variableErreur %}
+        <div class="row text-center">
+            <div class="col-md-12">
+                <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p><strong>Oups! </strong>Le mot de passe où l'identifiant est incorrect</p>
+                <img style="width:180px;border-radius:50%;" src="../img/img-bean.png" alt="">
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+
+
+    <form action=" {{ path('account_login') }} " method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="text" name="_username" id="email" class="form-control" required
+                placeholder="Votre email.."/> 
+            </div>
+        </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" name="_password" id="password" class="form-control" required
+                placeholder="Votre mot de passe ..."/>
+            </div>
+         </div>   
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+           <a href="#" title="En cours"><p class="mt-2" style="font-size:12px;">Voir les mentions légales</p>
+           </a>
+        </div>
+    </div>
+</form>s
+</div>
+
+{% endblock %}
