@@ -64,6 +64,10 @@
             <div class="col-md-12">
                 <p> <span>{{ ad.price }}€</span> /nuit </p>
                 <button type="button" class="btn btn-primary">Je réserve</button>
+                {% if app.user and app.user == ad.author %}
+                <a href=" {{path('ad_edit' , {'slug' : ad.slug} )}} " 
+                class="btn btn-warning">Editer l'annonce</a>
+                {% endif %}
             </div>
         </div>
 
@@ -80,7 +84,8 @@
                 <p> Description : {{ad.author.Description | raw}} </p>
             </div>
             <div class="col-md-12">
-                <a href=" {{path('user_show' , {'slug': ad.author.slug} )}} "> <button type="button" class="btn btn-info">Voir son profil</button></a>
+                <a href=" {{path('user_show' , {'slug': ad.author.slug} )}} "> 
+                <button type="button" class="btn btn-info">Voir son profil</button></a>
             </div>
         </div>
     </div>

@@ -12,7 +12,15 @@
                     <p class="card-text">
                         {{ad.introduction}}
                     </p>
-                    <a href="{{ url }}" class="btn btn-secondary">En savoir plus</a>
+                    <a href="{{ url }}" class="btn btn-success"><i class="far fa-eye"></i></a>
+                    {% if app.user and app.user == ad.author %}
+                        <a href=" {{path('ad_edit' , {'slug' : ad.slug } )}} "
+                        class="btn btn-warning"><i class="far fa-edit"></i></a>
+                        <a href=" {{path('ad_delete' , {'slug' : ad.slug } )}} "
+                        class="btn btn-danger" 
+                        onclick="return confirm(`Etes vous certain de vouloir supprimer l'annonce`)">
+                        <i class="far fa-trash-alt"></i></a>
+                    {% endif %}
                 </div>
             </div> 
     </div>

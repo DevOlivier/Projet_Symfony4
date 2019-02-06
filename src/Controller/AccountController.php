@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Ad;
 use App\Entity\User;
 use App\Form\AccountType;
 use App\Entity\PasswordUpdate;
@@ -12,6 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -80,6 +83,8 @@ class AccountController extends AbstractController
      * 
      * @Route("/account/profile", name="account_profil")
      * 
+     * @IsGranted("ROLE_USER")
+     * 
      * @return Response
      */
     public function profile(Request $request , ObjectManager $manager){
@@ -107,6 +112,8 @@ class AccountController extends AbstractController
      * 
      * @Route("/account/update-password", name="account_password")
      *
+     * @IsGranted("ROLE_USER")
+     * 
      * @return Response
      */
     public function updatePassword(Request $request , UserPasswordEncoderInterface $encoder , ObjectManager
@@ -146,6 +153,8 @@ class AccountController extends AbstractController
      *
      * @Route("/account", name="account_index")
      * 
+     * @IsGranted("ROLE_USER")
+     * 
      * @return Response
      */
     public function myAccount(){
@@ -153,5 +162,25 @@ class AccountController extends AbstractController
         return $this->render('user/index.html.twig' , [
             'user' => $user,
         ]);
+    }
+    /**
+     * Permet de supprimer une annonce
+     * 
+     * @Route("/ad/{slug}/delete", name="ad_delete")
+     * @Security("is_granted('ROLE_USER') and user == ad.getAuthor()")
+     *
+     * @param Ad $ad
+     * @param ObjectManager $manager
+     * @return Response
+     */
+    public function delete(Ad $ad , ObjectManager $manager){
+        $manager->remove($ad);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "L'annonce a bien été supprimé "
+        );
+        return $this->redirectToRoute("ad");
     }
 }

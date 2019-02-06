@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Ad;
 use Faker\Factory;
+use App\Entity\Role;
 use App\Entity\User;
 use App\Entity\Image;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -20,6 +21,22 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create("fr-FR");
+              
+        //Créer le role Admin
+        $adminRole = new Role();
+        $adminRole->setTitle('ROLE_ADMIN');
+        $manager->persist($adminRole);
+        //Créer un user qui aura le role admin
+        $adminUser = new User();
+        $adminUser->setFirstname('Olivier')
+                    ->setLastName('Clercq')
+                    ->setEmail('admin@admin.fr')
+                    ->setHash($this->encoder->encodePassword($adminUser , 'password'))
+                    ->setPicture('../img/photo_profil.png')
+                    ->setIntroduction($faker->sentence())
+                    ->setDescription('Administrateur du site')
+                    ->addUserRole($adminRole);
+        $manager->persist($adminUser);
 
         //gestion des utilisateurs
          $users = [];

@@ -7,9 +7,12 @@ use App\Entity\Image;
 use App\Form\AjouterAnnonceType;
 use App\Repository\AdRepository;
 use Symfony\Component\HttpFoundation\Request;
+//use Symfony\Component\Security\Core\Security;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdController extends AbstractController
@@ -28,6 +31,8 @@ class AdController extends AbstractController
     /**
      * CREATION ANNONCE
      * @Route("/ad/new", name="new")
+     * @IsGranted("ROLE_USER") 
+     * 
      * @return Response
      */
     public function create(Request $request , ObjectManager $manager)
@@ -70,6 +75,8 @@ class AdController extends AbstractController
      * Permet de modifier une annonce
      * 
      * @Route("/ad/{slug}/edit", name="ad_edit")
+     * @Security("is_granted('ROLE_USER') and user == ad.getAuthor()", 
+     * message="Erreur vous n'avez pas accès à ce contenu")
      *
      * @return Response
      */
