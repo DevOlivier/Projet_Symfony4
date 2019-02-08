@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}Historique de réservation{% endblock %}
+{% block body %}
+    <div id="bgContact"></div>
+    <div class="container mt-5">
+        <div class="alert alert-info mt-3">
+             <h4>Mon historique de réservation</h4>
+        </div>
+        <hr>
+        
+        {% for booking in app.user.bookings %}
+            <div class="row">
+                <div class="col-md-5 mt-5" alt="" class="img-fluid">
+                    <img src="../img/img-london.jpg" alt="" class="img-fluid" >
+                </div>
+                <div class="col-md-7 mt-5">
+                    <h2 style="font-size:16px;"> {{booking.ad.title}} </h2>
+                    <h3 style="font-size:14px"> Réservation n° {{booking.id}} </h3>
+                    <p>Réservation du {{booking.startDate | date('d/m/Y')}} au
+                     {{booking.endDate | date('d/m/Y')}} <br>
+                     pour un prix de : {{booking.amount}} &euro; 
+                    </p>
+                    <a href=" {{path('booking_show' , {'id' : booking.id })}} "
+                    class="btn btn-info">Voir annonce</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -183,4 +183,15 @@ class AccountController extends AbstractController
         );
         return $this->redirectToRoute("ad");
     }
+   
+    /**
+     * Permet d'afficher les réservation passées et à venir
+     * 
+     * @Route("/account/bookings", name="account_bookings")
+     *
+     * @return Response
+     */
+    public function bookings(){
+        return $this->render('account/bookings.html.twig');
+    }
 }
