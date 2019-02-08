@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %} Accueil {% endblock %}
+{% block body %}
+    <div class="container mt-5">
+        <p>Oups ! erreur 404, la page est introuvable</p>
+        <img src="../img/img-bean.png" alt="avatar error" style="width:200px; border-radius:50%;">
+        <div class="row">
+            <div class="col-md-3 mt-5">
+                <a href=" {{path('homePage')}} " class="btn btn-success">Retour accueil</a>
+            </div>
+           
+        </div>
+    </div>
+
+{% endblock %}

@@ -9,6 +9,9 @@ header {
     justify-content: space-around;
     display: flex;
 }
+
+
+
 header h1{
     color: #b2bec3;
 }
@@ -64,6 +67,18 @@ header h1{
     justify-content: space-around;
     display: flex;
 }
+
+#bgBooking {
+    background      : linear-gradient(-225deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.3) 50%), 
+    url("../img/bg-booking.jpg") fixed;
+    height          : 50vh;
+    background-size : cover;
+    text-align      : center;
+    align-items     : center;
+    position        : relative;
+    justify-content: space-around;
+    display: flex;
+}
 .presentationBien span{
    font-size: 20px;
    font-weight: bold;
@@ -94,4 +109,10 @@ form button {
     height: 40px;
     border-radius: 50%;
 }
+
+.formBooking h2 {
+    font-size: 15px;
+}
+
+
 
