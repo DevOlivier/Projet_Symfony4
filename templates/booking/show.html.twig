@@ -4,6 +4,16 @@
     <div id="bgBooking"></div>
     <div class="container mt-5">
         <h1>Voici le détail de la réservation n° {{booking.id}} </h1>
+
+        {% if app.request.query.get('withAlert') %}
+            <div class="alert alert-success">
+                <p>Votre réservation {{booking.id}} à bien été pris en compte.<br>
+                Pour tout renseignement vous pouvez contacter notre service client au 0800 43 44 32. <br>
+                Nous vous remercions pour votre confiance
+                </p>
+            </div>
+        {% endif %}
+
         <div class="row mt-5">
             <div class="col">
                 <h2>Détail</h2>
