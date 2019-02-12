@@ -34,15 +34,15 @@ class AjouterAnnonceType extends ApplicationType
             ->add('rooms' , IntegerType::class , 
             $this->getConfigurationFormulaire('Nombre de pièce' , 
             'Combien de pièce compte votre appartement'))
-             ->add('price' , MoneyType::class , 
-             $this->getConfigurationFormulaire('Prix par nuit' , 'Quel est le prix par nuit ?'))
-             //rajouter champ de type collection, ajouter plusieurs champs image, 
-             //Permet d'ajouter au sein d'un formulaire plusieurs champs
-             ->add('images' , CollectionType::class , [
-                 'entry_type' => ImageType::class,
-                 'allow_add' => true,
-                 'allow_delete' => true,
-             ])
+            ->add('price' , MoneyType::class , 
+            $this->getConfigurationFormulaire('Prix par nuit' , 'Quel est le prix par nuit ?'))
+            //rajouter champ de type collection, ajouter plusieurs champs image, 
+            //Permet d'ajouter au sein d'un formulaire plusieurs champs
+            ->add('images' , CollectionType::class , [
+                'entry_type' => ImageType::class,
+                'allow_add' => true,
+                'allow_delete' => true,
+            ])
         ;
     }
 

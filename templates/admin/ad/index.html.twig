@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %} Espace administration {% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="mt-5 text-center">Gestion des annonces</h1>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Réservation</th>
+                    <th>Action</th>
+                <tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!--une ligne pour chaque annonce-->
+                    {% for ad in ads %}
+                    <td> {{ad.id}} </td>
+                    <td> {{ad.title}} </td>
+                    <td> <img src=" {{ad.author.picture}} " alt="avatar_author" class="img-admin"> 
+                        {{ad.author.firstName}} 
+                    </td>
+                    <td> {{ad.bookings | length}} </td>  
+                    <td>
+                        <a href=" {{path('admin_ads_edit' , {'id' : ad.id}  )}} "
+                        class="btn btn-success btn-edit-admin">
+                        <i class="fas fa-edit"></i>
+                        </a>
+                        <a href=" {{path('admin_ads_delete' , {'id' : ad.id} )}} " 
+                        class="btn btn-danger btn-delete-admin"> 
+                        <i class="fas fa-trash"></i> </a>
+                    </td>
+                </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

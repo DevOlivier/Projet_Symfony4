@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--Je n'inclue pas le base.html.twig étant donné que je suis sur un formularie Admin totalement indépendant-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Espace Administration </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" 
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    </head>
+
+    <style>
+        .container {
+            display:flex;
+            justify-content:center;
+            height:100vh;
+        }
+
+        .card {
+            margin-top: 50px;
+        }
+
+        .errorConnection {
+            font-size:10px;
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <i class="fa fas-lock"></i> 
+                                {% if hasError %}
+                                    <div class="alert alert-danger">
+                                        <p class="errorConnection">Le mot de passe ou l'identifiant est incorrect</p>
+                                    </div>
+                                {% endif %}
+                                Connexion Administration
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post">
+                                <div class="form-group">
+                                    <label for="_username">Email</label>
+                                    <input type="text" class="form-control" placeholder="" value=" {{username}} " 
+                                    name="_username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="_password">Mot de passe</label>
+                                    <input type="password" class="form-control" placeholder=""
+                                    name="_password">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-lock-open"></i>
+                                        Connexion
+                                    </button>
+                                    <a href=" {{path('homePage')}} " class="btn btn-link">
+                                        <i class="fas fa-arrow-circle-left">
+                                        Retour au site
+                                        </i>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </body>
+</html>

@@ -78,8 +78,8 @@ header h1{
     display: flex;
 }
 .presentationBien span{
-   font-size: 20px;
-   font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .chmb {
@@ -88,7 +88,7 @@ header h1{
 
 /*FORM*/
 form {
-    width : 50%;
+    width : 100%;
     margin: auto;
     margin-top: 60px;
 }
@@ -98,18 +98,50 @@ form label {
 }
 
 form button {
-    width : 100%;
+    max-width : 100%;
     margin-top: 30px;
 }
 
 .avatarMini {
-    width : 40px;
+    max-width : 40px;
     height: 40px;
     border-radius: 50%;
 }
 
 .formBooking h2 {
     font-size: 15px;
+}
+
+.rating i {
+  color : #eccc68;
+}
+
+.img-admin  {
+    max-width : 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.btn-edit-admin {
+    margin-bottom:10px;
+    border-radius: 10px;
+}
+
+.btn-delete-admin{
+    margin-bottom:10px;
+    border-radius: 10px;
+}
+
+.img-admin  {
+    max-width: 20px;
+    border-radius: 50px;
+    margin-right:10px;
+}
+
+.img-booking  {
+    max-width: 20px;
+    border-radius: 50px;
+    margin-right:10px;
 }
 
 

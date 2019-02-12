@@ -38,7 +38,7 @@ class AdController extends AbstractController
     public function create(Request $request , ObjectManager $manager)
     {
         $ad = new Ad();
-       
+    
         $form = $this->createForm(AjouterAnnonceType::class , $ad);
         //Passe sur chaque champs
         $form->handleRequest($request);
@@ -93,7 +93,7 @@ class AdController extends AbstractController
             $manager->persist($ad);
             $manager->flush();
 
-             $this->addFlash(
+            $this->addFlash(
                 'success',
                 'Votre annonce à bien été modifiée'
             );

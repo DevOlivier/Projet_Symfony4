@@ -9,13 +9,13 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
         crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" 
         crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         
-        {% include 'partials/header.html.twig' %}
+        {% include 'admin/partials/header.html.twig' %}
 
         {% block body %}{% endblock %}
         <script src="/js/jquery.min.js"></script>
@@ -24,5 +24,5 @@
         {% block javascripts %}{% endblock %}
     </body>
 
-    {% include 'partials/footer.html.twig' %}
+    {% include 'admin/partials/footer.html.twig' %}
 </html>

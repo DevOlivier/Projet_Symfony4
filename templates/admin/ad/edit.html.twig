@@ -1,0 +1,93 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %} Modification Annonc {% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="mt-5">Modification de l'annonce : {{ad.title}} </h1>
+            {{form_start(form)}}
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <h4 class="card-title text-center">Modification de l'annoce</h4>
+                            </div>
+                            <div class="card-body">
+                                {{form_widget(form)}}
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fas fa-check"></i>
+                                    Enregistrer les modifications
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card bg-light">
+                            <div class="card-header">
+                                <h4 class="card-title">Réservations</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Voyageur</th>
+                                            <th>Date de réservation</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for booking in ad.bookings %}
+                                        <tr>
+                                            <td> {{booking.id}} </td>
+                                            <td> {{booking.booker.firstName}} </td>
+                                            <td> {{booking.createdAd | date('d/m/Y H:i')}} </td>
+                                            <td>
+                                                <a href="#" class="btn btn-info">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card bg-light mt-5">
+                            <div class="card-header">
+                                <h4 class="card-title">Commentaires</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Voyageur</th>
+                                            <th>Commentaire</th>
+                                            <th>Note</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for comment in ad.comments %}
+                                        <tr>
+                                            <td> {{comment.id}} </td>
+                                            <td> {{comment.author.firstName}} </td>
+                                            <td> {{comment.content}} </td>
+                                            <td> {{comment.rating}} </td>
+                                            <td>
+                                                <a href="#" class="btn btn-info">
+                                                    <i class="fas fa-pen"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {{form_end(form)}}
+    </div>
+{% endblock %}
