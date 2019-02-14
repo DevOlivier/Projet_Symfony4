@@ -113,7 +113,7 @@ form button {
 }
 
 .rating i {
-  color : #eccc68;
+color : #eccc68;
 }
 
 .img-admin  {
@@ -144,5 +144,7 @@ form button {
     margin-right:10px;
 }
 
-
+.img-london img {
+    width:100%;
+}
 

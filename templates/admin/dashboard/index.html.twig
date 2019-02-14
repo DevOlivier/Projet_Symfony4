@@ -1,0 +1,70 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block body %}
+    <div class="container-fluid mt-4">
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card bg-primary text-white mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fas fa-users fa-3x"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title">Inscrits</h5>
+                                <p style="font-size:22px;"> {{stats.users}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-success text-white mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fas fa-align-left fa-3x"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title">annonces</h5>
+                                <p style="font-size:22px;"> {{stats.ads}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-danger text-white mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <i class="fas fa-folder fa-3x"></i>
+                            </div>
+                            <div class="col-md-9">
+                                <h5 class="card-title">réservations</h5>
+                                <p style="font-size:22px;"> {{stats.bookings}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="col">
+                <div class="card bg-info text-white mb-3 text-center">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <i class="fas fa-comments fa-3x"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title">avis</h5>
+                                <p style="font-size:22px;"> {{stats.comments}} </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+{% endblock %}
